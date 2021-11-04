@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+    <head>
+        <title>Introduction/Usage for CSV maker for Anki app</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <link rel="shortcut icon" href="cyan-kiwi-bird.png">
+    </head>
+    <body>
+
+<h2>そもそもの始まり</h2>
+
+<p>　映画やドラマの字幕で使われている単語を一覧表示するアプリがあったら面白いと思った。そして、その中から知らない単語を選択すると、オンライン辞書が検索され、結果をAnkiにインポートできたら便利だと思った。</p>
+
+<p>　という考えのもとで作ったアプリ。久しぶりに発掘したので今回、お色直ししてGitHubにて公開してみる。</p>
+
+<h2>1. 用意するもの</h2>
+<ul>
+<li>SubRip形式、つまり拡張子が「.srt」の字幕ファイル、あるいはテキストファイル</li>
+<li>Anki（CSV形式のファイルでやり取りするのが手っ取り早かったので、Windows用、あるいはmacOS用のAnkiが必要）</li>
+</ul>
+
+<h2>2. 実行方法</h2>
+<ol>
+<li><a href="https://mmurak.github.io/CSVmaker/index.html">https://mmurak.github.io/CSVmaker/</a>にアクセスする</li>
+<li>「SRTまたはTXTファイル：」のファイル選択ボタンを押し、入力ファイルを指定する（除外Wordファイルについては後述）。</li>
+<li>単語一覧がアルファベット順で表示されるので、知らない単語をクリックするとその単語が辞書検索用の小窓に表示される（TIPS： クリックではなくドラッグするとドラッグ範囲のみが小窓に表示される）。</li>
+<li>「dictionary search」ボタンを押すと、小窓の内容の単語が検索され、別ウィンドウ上に表示される（TIPS： 検索後はこの小窓からも変更できる）。</li>
+<li>別ウィンドウの検索結果から必要な部分をコピーし、小窓の下にあるテキストエリアにペーストし、その右横にある「register」ボタンを押す。</li>
+<li>3〜5を繰り返す。</li>
+<li>最後に「ファイル出力」リンクをクリックすると、ファイルが2つ（.srtファイルと.exclファイル）出力される（「複数ファイルのダウンロード」を求めるダイアログボックスが出るので許可する。複数ファイルとはCSVファイルと、次回実行時に使用できる除外ファイルの2つ）。</li>
+</ol>
+
+<h4>除外ファイルとは？</h4>
+
+<p>　除外ファイルとは、そのプログラム実行で読み込んだファイル中に含まれている単語すべてを一覧にしたファイル（除外ファイルを読み込んでいる場合は、その内容も含めて新たな除外ファイルとして出力される）。このため、次回実行時に除外ファイルを指定すると、前回までに扱った単語は表示されなくなる。</p>
+
+<p>たいていの字幕ファイルには、2時間モノの映画で約1700〜2000程度、1時間モノのドラマで1300程度の単語が使用されている（単数/複数形、that's 等をすべて別の単語として数えた場合）。これらにじっくり目を通すのは割と大変なので除外ファイルを使用することで、次回の処理を楽にすることができる。ちなみに、ドラマの初回処理の場合、2度めの処理で半分くらいにはなる。</p>
+
+<h2>3. オンライン辞書の変更</h2>
+
+<p>　実行時のアクセスURLに「dic」パラメーターを指定することで、別のオンライン辞書に切り替えることができる（検索語がURLの末尾に指定される形式のサイトであればどのような辞書でも使用できる）。</p>
+
+<h4>指定形式</h4>
+<pre>　　https://mmurak.github.io/CSVmaker/index.html?dic=オンライン辞書のURL（以下の例を参照）</pre>
+
+<ul>
+<li>Collins（デフォルト）： <a href="https://mmurak.github.io/CSVmaker/index.html?dic=">www.collinsdictionary.com/dictionary/english</a></li>
+<li>Dictionary.com：<a href="https://mmurak.github.io/CSVmaker/index.html?dic=www.dictionary.com/browse">www.dictionary.com/browse</a></li>
+<li>Cambridge English Dictionary：<a href="https://mmurak.github.io/CSVmaker/index.html?dic=dictionary.cambridge.org/dictionary/english">dictionary.cambridge.org/dictionary/english</a></li>
+<li>Merriam-Webster ：<a href="https://mmurak.github.io/CSVmaker/index.html?dic=www.merriam-webster.com/dictionary">www.merriam-webster.com/dictionary</a></li>
+<li>Macmillian Dictionary：<a href="https://mmurak.github.io/CSVmaker/index.html?dic=www.macmillandictionary.com/dictionary/british">www.macmillandictionary.com/dictionary/british</a></li>
+<li>Weblio ：<a href="https://mmurak.github.io/CSVmaker/index.html?dic=ejje.weblio.jp/content">ejje.weblio.jp/content</a></li>
+</ul>
+
+<h4>実行中のオンライン辞書変更</h4>
+
+<p>　シフトキーを押しながら「dictionary search」ボタンを押すと、オンライン辞書URLを変更することができる。その際には「https://」は指定せず、末尾の「/」も指定しない形で指定すること。</p>
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+    <head>
+        <title>CSV maker for Anki app</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <link rel="stylesheet" href="./csvMaker.css">
+        <link rel="shortcut icon" href="cyan-kiwi-bird.png">
+    </head>
+    <body>
+        <header class="page-header">
+            <hr>
+                除外ワードファイル： <input type="file" id="exclfile" name="files" accept=".excl" />
+                SRTまたはTXTファイル： <input type="file" id="srtfile" name="files" accept=".srt,.txt" />
+            <hr>
+                <input type="textfield" id="displayfield" size="20" spellcheck="false" autocomplete="off"><input type="button" id="dicsearch" value="dictionary search"/>
+            <br/>
+                <textarea id="otherside" rows="5" cols="80" spellcheck="false" autocomplete="off"></textarea>
+                <input type="button" id="selectbtn" value="register" onclick="register();"/>
+                <a href="javascript:outputFiles();">ファイル出力</a>
+            <br/>
+            <hr>
+        </header>
+        <div class="content">
+            <div id="listarea"></div>
+        </div>
+
+        <script src="./scripts/parmManager.js"></script>
+        <script src="./scripts/exclExtractor.js"></script>
+        <script src="./scripts/srtExtractor.js"></script>
+        <script src="./scripts/csvMaker.js"></script>
+
+    </body>
+</html>
